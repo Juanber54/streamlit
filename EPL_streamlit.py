@@ -75,6 +75,7 @@ st.divider()
 #Gráfica 1
 st.subheader('Jugadores por Equipo')
 fig1, ax1 = plt.subplots()
+plt.rcParams.update({'font.size': 8, 'figure.figsize': (8, 8)}) 
 players.groupby('Team').size().plot(kind='pie', explode=[0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01
                                                            , 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01
                                                            , 0.01, 0.01, 0.01, 0.01], autopct='%.2f%%', cmap='tab10')
@@ -87,4 +88,5 @@ jug_pais_df = pd.DataFrame(jug_p_pais)
 st.subheader('Nacionalidades por Equipo')
 fig2, ax1 = plt.subplots()
 sns.set_style('darkgrid')
-sb.histplot(data=jug_pais_df, x='Team', palette='twilight')
+sns.histplot(data=jug_pais_df, x='Team', palette='twilight')
+st.pyplot(fig2)
