@@ -168,22 +168,23 @@ with colum_der:
     plt.ylabel('Expected Goals per 90')
     st.pyplot(fig8)
 
-#Gráfica 9
 st.divider()
-fig9, ax1 = plt.subplots(figsize=(6, 5))
-players.plot(kind='scatter', x='Shot Accuracy (%)', y='Goals', color='purple')
-plt.title('Shot Accuracy vs Goals scored')
-plt.xlabel('Shot Accuracy (%)')
-plt.ylabel('Goals scored')
-st.pyplot(fig9)
-st.divider()
+st.subheader('Otras correlaciones')
 
-#Gráfica 10
-fig10, ax1 = plt.subplots(figsize=(6, 5))
-players.plot(kind='scatter', x='Minutes', y='Goals', color='grey')
-plt.title('Minutes played vs Goals scored')
-plt.xlabel('Minutes played')
-plt.ylabel('Goals scored')
+# Gráfica 9
+fig9, ax1 = plt.subplots(figsize=(6, 5))
+ax1.scatter(players['Shot Accuracy (%)'], players['Goals'], color='purple', alpha=0.7)
+ax1.set_title('Shot Accuracy vs Goals scored', fontsize=12)
+ax1.set_xlabel('Shot Accuracy (%)', fontsize=10)
+ax1.set_ylabel('Goals scored', fontsize=10)
+st.pyplot(fig9)
+
+# Gráfica 10
+fig10, ax2 = plt.subplots(figsize=(6, 5))
+ax2.scatter(players['Minutes'], players['Goals'], color='grey', alpha=0.7)
+ax2.set_title('Minutes played vs Goals scored', fontsize=12)
+ax2.set_xlabel('Minutes played', fontsize=10)
+ax2.set_ylabel('Goals scored', fontsize=10)
 st.pyplot(fig10)
 st.divider()
 
