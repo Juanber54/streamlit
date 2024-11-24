@@ -86,7 +86,7 @@ jug_pais = players[['Country','Team']]
 jug_p_pais = jug_pais.groupby(['Team','Country']).value_counts()
 jug_pais_df = pd.DataFrame(jug_p_pais)
 st.subheader('Nacionalidades por Equipo')
-fig2, ax1 = plt.subplots(figsize=(6, 8))
+fig2, ax1 = plt.subplots(figsize=(5, 6))
 sns.set_style('darkgrid')
 sns.histplot(data=jug_pais_df, x='Team', palette='twilight')
 plt.xticks(rotation=90)
