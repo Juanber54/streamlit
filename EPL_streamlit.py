@@ -92,10 +92,8 @@ sns.histplot(data=jug_pais_df, x='Team', palette='twilight')
 plt.xticks(rotation=90)
 st.pyplot(fig2)
 
-# Subheader para la comparación
 st.subheader('Comparación de estadísticas ofensivas')
 colum_izq, colum_der = st.columns(2)
-#estadisticas_ofensivas = ['Total Shots on Target', 'Goals', 'Expected Goals']
 estadisticas_ofensivas = stat_multi_selected
 análisis_ofensivo_df = players.groupby('Team')[estadisticas_ofensivas].sum()
 
@@ -133,7 +131,7 @@ ax1.set_xlabel(stat_selected, fontsize=12)
 ax1.set_ylabel('Jugador', fontsize=12)
 st.pyplot(fig5)
 
-#Gráfica 7
+#Gráfica 6
 st.subheader('Aprovechamiento de oportunidades de cara a gol')
 goles_equipos = players[['Team', 'Goals','Expected Goals']]
 top_goles_equipos = pd.DataFrame(goles_equipos.groupby(['Team']).sum())
@@ -146,3 +144,21 @@ plt.xlabel('Equipo')
 plt.ylabel('Valores')
 plt.xticks(rotation=85)
 st.pyplot(fig6)
+
+#Gráfica 7
+colum_izq, colum_der = st.columns(2)
+colum_izq.markdown("Disparos a puerta vs Goles (por 90)")
+players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green')
+fig7, ax1 = plt.subplots()
+plt.xlabel('Shots on Target per 90')
+plt.ylabel('Goals per 90')
+st.pyplot(fig7)
+
+#Gráfica 8
+colum_der.markdown("Disparos a puerta vs Goles esperados (por 90)")
+players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue')
+fig8, ax2 = plt.subplots()
+plt.xlabel('Shots on Target per 90')
+plt.ylabel('Expected Goals per 90')
+st.pyplot(fig8)
+
