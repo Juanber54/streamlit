@@ -91,3 +91,30 @@ sns.set_style('darkgrid')
 sns.histplot(data=jug_pais_df, x='Team', palette='twilight')
 plt.xticks(rotation=90)
 st.pyplot(fig2)
+
+#Gráfica 3 y 4
+st.subheader('Comparación estadísticas ofensivas')
+colum_izq, colum_der = st.columns(2)
+colum_izq.markdown(team1_selected)
+fig3, ax1 = plt.subplots()
+análisis_ofensivo = players[['Total Shots','Total Shots on Target','Goals','Expected Goals']]
+análisis_ofensivo = pd.DataFrame(análisis_ofensivo.groupby(['Team']).sum())
+equipo1 = análisis_ofensivo.loc[team1_selected]
+equipo1 = equipo1.transpose()
+equipo1 = equipo1.to_frame()
+equipo1 = equipo1.rename(columns={1: 'Parámetro'})
+sns.countplot(x=equipo1, color='lightblue', edgecolor='black')
+ax1.set_xlabel(team1_selected)
+ax1.set_ylabel('Valor')
+colum_izq.pyplot(fig3)
+
+colum_der.markdown(team2_selected)
+fig4, ax2 = plt.subplots()
+equipo2 = análisis_ofensivo.loc[team2_selected]
+equipo2 = equipo2.transpose()
+equipo2 = equipo2.to_frame()
+equipo2 = equipo2.rename(columns={1: 'Parámetro'})
+sns.countplot(x=equipo2, color='red', edgecolor='black')
+ax2.set_xlabel(team2_selected)
+ax2.set_ylabel('Valor')
+colum_der.pyplot(fig4)
