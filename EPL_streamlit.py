@@ -95,7 +95,8 @@ st.pyplot(fig2)
 # Subheader para la comparación
 st.subheader('Comparación de estadísticas ofensivas')
 colum_izq, colum_der = st.columns(2)
-estadisticas_ofensivas = ['Total Shots on Target', 'Goals', 'Expected Goals']
+#estadisticas_ofensivas = ['Total Shots on Target', 'Goals', 'Expected Goals']
+estadisticas_ofensivas = stat_multi_selected
 análisis_ofensivo_df = players.groupby('Team')[estadisticas_ofensivas].sum()
 
 # Gráfica 3
@@ -103,7 +104,7 @@ colum_izq.markdown(f"**Equipo seleccionado:** {team1_selected}")
 equipo1 = análisis_ofensivo_df.loc[team1_selected].to_frame(name='Valor')
 equipo1['Estadística'] = equipo1.index
 fig3, ax1 = plt.subplots()
-sns.barplot(data=equipo1, x='Estadística', y='Valor', palette='Blues', ax=ax1)
+sns.barplot(data=equipo1, x='Estadística', y='Valor', palette='mako', ax=ax1)
 ax1.set_title(team1_selected)
 ax1.set_xlabel('Categoría')
 ax1.set_ylabel('Valores')
@@ -115,7 +116,7 @@ colum_der.markdown(f"**Equipo seleccionado:** {team2_select}")
 equipo2 = análisis_ofensivo_df.loc[team2_select].to_frame(name='Valor')
 equipo2['Estadística'] = equipo2.index
 fig4, ax2 = plt.subplots()
-sns.barplot(data=equipo2, x='Estadística', y='Valor', palette='Reds', ax=ax2)
+sns.barplot(data=equipo2, x='Estadística', y='Valor', palette='rocket', ax=ax2)
 ax2.set_title(team2_select)
 ax2.set_xlabel('Categoría')
 ax2.set_ylabel('Valores')
