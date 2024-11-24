@@ -95,7 +95,7 @@ st.pyplot(fig2)
 # Subheader para la comparación
 st.subheader('Comparación de estadísticas ofensivas')
 colum_izq, colum_der = st.columns(2)
-estadisticas_ofensivas = ['Total Shots', 'Total Shots on Target', 'Goals', 'Expected Goals']
+estadisticas_ofensivas = ['Total Shots per 90', 'Total Shots on Target per 90', 'Goals per 90', 'Expected Goals per 90']
 análisis_ofensivo_df = players.groupby('Team')[estadisticas_ofensivas].sum()
 
 # Gráfica 3
