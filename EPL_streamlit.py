@@ -97,7 +97,7 @@ st.subheader('Comparación estadísticas ofensivas')
 colum_izq, colum_der = st.columns(2)
 colum_izq.markdown(team1_selected)
 fig3, ax1 = plt.subplots()
-análisis_ofensivo = players[['Total Shots','Total Shots on Target','Goals','Expected Goals']]
+análisis_ofensivo = players[['Team','Total Shots','Total Shots on Target','Goals','Expected Goals']]
 análisis_ofensivo = pd.DataFrame(análisis_ofensivo.groupby(['Team']).sum())
 equipo1 = análisis_ofensivo.loc[team1_selected]
 equipo1 = equipo1.transpose()
