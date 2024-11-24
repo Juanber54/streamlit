@@ -172,7 +172,7 @@ st.divider()
 st.subheader('Otras correlaciones')
 
 # Gráfica 9
-fig9, ax1 = plt.subplots(figsize=(6, 5))
+fig9, ax1 = plt.subplots(figsize=(5, 4))
 ax1.scatter(players['Shot Accuracy (%)'], players['Goals'], color='purple', alpha=0.7)
 ax1.set_title('Shot Accuracy vs Goals scored', fontsize=12)
 ax1.set_xlabel('Shot Accuracy (%)', fontsize=10)
@@ -180,7 +180,7 @@ ax1.set_ylabel('Goals scored', fontsize=10)
 st.pyplot(fig9)
 
 # Gráfica 10
-fig10, ax2 = plt.subplots(figsize=(6, 5))
+fig10, ax2 = plt.subplots(figsize=(4, 3))
 ax2.scatter(players['Minutes'], players['Goals'], color='grey', alpha=0.7)
 ax2.set_title('Minutes played vs Goals scored', fontsize=12)
 ax2.set_xlabel('Minutes played', fontsize=10)
