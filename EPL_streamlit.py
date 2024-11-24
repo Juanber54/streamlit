@@ -133,3 +133,16 @@ ax1.set_xlabel(stat_selected, fontsize=12)
 ax1.set_ylabel('Jugador', fontsize=12)
 st.pyplot(fig5)
 
+#Gráfica 7
+st.subheader('Aprovechamiento de oportunidades de cara a gol')
+goles_equipos = players[['Team', 'Goals','Expected Goals']]
+top_goles_equipos = pd.DataFrame(goles_equipos.groupby(['Team']).sum())
+fig6, ax1 = plt.subplots()
+plt.plot(top_goles_equipos['Goals'],   color = 'green',   label = 'Goals', linewidth=2)
+plt.plot(top_goles_equipos['Expected Goals'],   color = 'blue',   label = 'Expected Goals', linewidth=2)
+plt.title('Goals and Expected Goals per Team')
+plt.legend(loc='best')
+plt.xlabel('Equipo')
+plt.ylabel('Valores')
+plt.xticks(rotation=85)
+st.pyplot(fig6)
