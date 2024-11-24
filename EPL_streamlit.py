@@ -149,19 +149,19 @@ st.divider()
 #Gráfica 7
 st.subheader('Correlación tiros a puerta vs goles/goles esperados')
 colum_izq, colum_der = st.columns(2)
-colum_izq.markdown("Disparos a puerta vs Goles (por 90)")
 with colum_izq:
-    fig7, ax1 = plt.subplots(figsize=(6, 4))
+    fig7, ax1 = plt.subplots(figsize=(6, 6))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green', ax=ax1)
+    plt.title('Disparos a puerta vs Goles')
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Goals per 90')
     st.pyplot(fig7)
 
 #Gráfica 8
-colum_der.markdown("Disparos a puerta vs Goles esperados (por 90)")
 with colum_der:
-    fig8, ax2 = plt.subplots(figsize=(6, 4))
+    fig8, ax2 = plt.subplots(figsize=(6, 6))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue',ax=ax2)
+    plt.title('Disparos a puerta vs Goles esperados')
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Expected Goals per 90')
     st.pyplot(fig8)
