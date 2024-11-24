@@ -27,7 +27,7 @@ team2_selected = st.sidebar.selectbox('Elección del Equipo 2 para el Gráfico:'
 st.sidebar.divider()
 
 #Gráfica 4
-vars_top = st.sidebar.slider('Cantidad de jugadores mostrados: ', 1, 9)
+vars_top = st.sidebar.slider('Cantidad de jugadores mostrados: ', 1, 10)
 st.sidebar.divider()
 
 #Gráfica 4 y 11
@@ -124,10 +124,12 @@ colum_der.pyplot(fig4)
 
 #Gráfica 5
 st.subheader('Líderes estadísticos')
-top_goles = pd.DataFrame(players[stat_selected])
-top_goles = top_goles.sort_values(by=stat_selected, ascending=False)
-top_sel = int(vars_top)+1
-top_goles_lim = top_goles.iloc[:top_sel]
-fig5, ax1 = plt.subplots()
-sns.countplot(x=top_goles_lim, color='lightblue', edgecolor='black')
+top_goles = players[['Player', stat_selected]].copy()
+top_goles = top_goles.sort_values(by=stat_selected, ascending=False).head(vars_top)
+fig5, ax1 = plt.subplots(figsize=(10, 6))
+sns.barplot(data=top_goles, x=stat_selected, y='Player', palette='viridis', ax=ax1)
+ax1.set_title(f'Top {vars_top} jugadores en {stat_selected}', fontsize=14)
+ax1.set_xlabel(stat_selected, fontsize=12)
+ax1.set_ylabel('Jugador', fontsize=12)
 st.pyplot(fig5)
+
