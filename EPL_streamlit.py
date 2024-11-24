@@ -19,12 +19,12 @@ st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 #Gráfica 2 y 3
 vars_team1 = ['Arsenal','Liverpool','Aston Villa','Fulham','Newcastle United','Brentford','Tottenham Hotspur','Nottingham Forest','Manchester United','West Ham United','Wolverhampton Wanderers','Chelsea','Luton Town','Manchester City','Brighton and Hove Albion','Burnley','Everton','Crystal Palace','Bournemouth','Sheffield United']
 default_team1 = vars_team1.index('Liverpool')
-team1_selected = st.sidebar.selectbox('Elección del Equipo para el Gráfico:', vars_team1, index = default_team1)
+team1_selected = st.sidebar.selectbox('Elección del Equipo 1 para el Gráfico:', vars_team1, index = default_team1)
 st.sidebar.divider()
 
-vars_team2 = ['Arsenal','Liverpool','Aston Villa','Fulham','Newcastle United','Brentford','Tottenham Hotspur','Nottingham Forest','Manchester United','West Ham United','Wolverhampton Wanderers','Chelsea','Luton Town','Manchester City','Brighton and Hove Albion','Burnley','Everton','Crystal Palace','Bournemouth','Sheffield United']
-default_team2 = vars_team2.index('Liverpool')
-team_selected2 = st.sidebar.selectbox('Elección del Equipo para el Gráfico:', vars_team2, index = default_team2)
+vars_team2 = ['Arsenal.','Liverpool.','Aston Villa.','Fulham.','Newcastle United.','Brentford.','Tottenham Hotspur.','Nottingham Forest.','Manchester United.','West Ham United.','Wolverhampton Wanderers.','Chelsea.','Luton Town.','Manchester City.','Brighton and Hove Albion.','Burnley.','Everton.','Crystal Palace.','Bournemouth.','Sheffield United.']
+default_team2 = vars_team2.index('Liverpool.')
+team2_selected = st.sidebar.selectbox('Elección del Equipo 2 para el Gráfico:', vars_team2, index = default_team2)
 st.sidebar.divider()
 
 #Gráfica 4
