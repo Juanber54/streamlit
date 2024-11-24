@@ -80,6 +80,7 @@ players.groupby('Team').size().plot(kind='pie', explode=[0.01, 0.01, 0.01, 0.01,
                                                            , 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01
                                                            , 0.01, 0.01, 0.01, 0.01], autopct='%.2f%%', cmap='tab10')
 st.pyplot(fig1)
+st.divider()
 
 #Gráfica 2
 jug_pais = players[['Country','Team']]
@@ -130,6 +131,7 @@ ax1.set_title(f'Top {vars_top} jugadores en {stat_selected}', fontsize=14)
 ax1.set_xlabel(stat_selected, fontsize=12)
 ax1.set_ylabel('Jugador', fontsize=12)
 st.pyplot(fig5)
+st.divider()
 
 #Gráfica 6
 st.subheader('Aprovechamiento de oportunidades de cara a gol')
@@ -150,7 +152,7 @@ st.divider()
 st.subheader('Correlación tiros a puerta vs goles/goles esperados')
 colum_izq, colum_der = st.columns(2)
 with colum_izq:
-    fig7, ax1 = plt.subplots(figsize=(6, 6))
+    fig7, ax1 = plt.subplots(figsize=(6, 5))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green', ax=ax1)
     plt.title('Disparos a puerta vs Goles')
     plt.xlabel('Shots on Target per 90')
@@ -159,10 +161,35 @@ with colum_izq:
 
 #Gráfica 8
 with colum_der:
-    fig8, ax2 = plt.subplots(figsize=(6, 6))
+    fig8, ax2 = plt.subplots(figsize=(6, 5))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue',ax=ax2)
     plt.title('Disparos a puerta vs Goles esperados')
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Expected Goals per 90')
     st.pyplot(fig8)
 
+#Gráfica 9
+st.divider()
+fig9, ax1 = plt.subplots(figsize=(6, 5))
+players.plot(kind='scatter', x='Shot Accuracy (%)', y='Goals', color='purple')
+plt.title('Shot Accuracy vs Goals scored')
+plt.xlabel('Shot Accuracy (%)')
+plt.ylabel('Goals scored')
+st.pyplot(fig9)
+st.divider()
+
+#Gráfica 10
+fig10, ax1 = plt.subplots(figsize=(6, 5))
+players.plot(kind='scatter', x='Minutes', y='Goals', color='grey')
+plt.title('Minutes played vs Goals scored')
+plt.xlabel('Minutes played')
+plt.ylabel('Goals scored')
+st.pyplot(fig10)
+st.divider()
+
+#Gráfica 11
+st.subheader('Matriz de Correlación')
+fig11, ax1 = plt.subplots(figsize=(6, 5))
+df_corr = players[stat_multi_selected].corr()
+sns.heatmap(df_corr, annot = anotacion, fmt='.2f', cmap = color_selected)
+st.pyplot(fig11)
