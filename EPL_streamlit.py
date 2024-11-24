@@ -10,7 +10,7 @@ Logo = io.imread("./Imagenes/EPLlogo.png")
 st.image(Logo, width = 500)
 
 st.title("Premier League 23/24")
-st.subheader(":blue[Análisis estadístico de diferentes parámetros ofensivos.]")
+st.subheader(":purple[Análisis estadístico de diferentes parámetros ofensivos.]")
 
 #Menú de configuración
 st.sidebar.image(Logo, width = 200)
