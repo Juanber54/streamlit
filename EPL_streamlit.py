@@ -20,7 +20,6 @@ st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 vars_team1 = ['Arsenal','Liverpool','Aston Villa','Fulham','Newcastle United','Brentford','Tottenham Hotspur','Nottingham Forest','Manchester United','West Ham United','Wolverhampton Wanderers','Chelsea','Luton Town','Manchester City','Brighton and Hove Albion','Burnley','Everton','Crystal Palace','Bournemouth','Sheffield United']
 default_team1 = vars_team1.index('Liverpool')
 team1_selected = st.sidebar.selectbox('Elección del Equipo 1 para el Gráfico:', vars_team1, index = default_team1)
-st.sidebar.divider()
 
 vars_team2 = ['Arsenal.','Liverpool.','Aston Villa.','Fulham.','Newcastle United.','Brentford.','Tottenham Hotspur.','Nottingham Forest.','Manchester United.','West Ham United.','Wolverhampton Wanderers.','Chelsea.','Luton Town.','Manchester City.','Brighton and Hove Albion.','Burnley.','Everton.','Crystal Palace.','Bournemouth.','Sheffield United.']
 default_team2 = vars_team2.index('Liverpool.')
@@ -72,3 +71,19 @@ st.markdown(":blue[Esto se debe principalmente a que varios jugadores no registr
 
 st.dataframe(players)
 st.divider()
+
+#Gráfica 1
+st.subheader('Jugadores por Equipo')
+fig1, ax1 = plt.subplots()
+teams_count = players['Team'].nunique()
+explode = [0.01] * teams_count
+st.pyplot(fig1)
+
+#Gráfica 2
+jug_pais = players[['Country','Team']]
+jug_p_pais = jug_pais.groupby(['Team','Country']).value_counts()
+jug_pais_df = pd.DataFrame(jug_p_pais)
+st.subheader('Nacionalidades por Equipo')
+fig2, ax1 = plt.subplots()
+sns.set_style('darkgrid')
+sb.histplot(data=jug_pais_df, x='Team', palette='twilight')
