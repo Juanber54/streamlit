@@ -92,25 +92,32 @@ sns.histplot(data=jug_pais_df, x='Team', palette='twilight')
 plt.xticks(rotation=90)
 st.pyplot(fig2)
 
-#Gráfica 3 y 4
-st.subheader('Comparación estadísticas ofensivas')
+# Subheader para la comparación
+st.subheader('Comparación de estadísticas ofensivas')
 colum_izq, colum_der = st.columns(2)
-colum_izq.markdown(team1_selected)
+estadisticas_ofensivas = ['Total Shots', 'Total Shots on Target', 'Goals', 'Expected Goals']
+análisis_ofensivo_df = players.groupby('Team')[estadisticas_ofensivas].sum()
+
+# Gráfica 3
+colum_izq.markdown(f"**Equipo seleccionado:** {team1_selected}")
+equipo1 = análisis_ofensivo_df.loc[team1_selected].to_frame(name='Valor')
+equipo1['Estadística'] = equipo1.index
 fig3, ax1 = plt.subplots()
-análisis_ofensivo = players[['Team','Total Shots','Total Shots on Target','Goals','Expected Goals']]
-análisis_ofensivo_df  = pd.DataFrame(análisis_ofensivo)
-análisis_ofensivo_df = análisis_ofensivo_df.groupby(['Team']).sum()
-equipo1 = análisis_ofensivo_df.loc[team1_selected]
-sns.countplot(x=equipo1, color='lightblue', edgecolor='black')
-ax1.set_xlabel(team1_selected)
-ax1.set_ylabel('Valor')
+sns.barplot(data=equipo1, x='Estadística', y='Valor', palette='Blues', ax=ax1)
+ax1.set_title(team1_selected)
+ax1.set_xlabel('Categoría')
+ax1.set_ylabel('Valores')
 colum_izq.pyplot(fig3)
 
-colum_der.markdown(team2_selected)
+# Gráfica del segundo equipo
 team2_select = team2_selected[:len(team2_selected)-1]
+colum_der.markdown(f"**Equipo seleccionado:** {team2_select}")
+equipo2 = análisis_ofensivo_df.loc[team2_select].to_frame(name='Valor')
+equipo2['Estadística'] = equipo2.index
 fig4, ax2 = plt.subplots()
-equipo2 = análisis_ofensivo_df.loc[team2_select]
-sns.countplot(x=equipo2, color='red', edgecolor='black')
-ax2.set_xlabel(team2_select)
-ax2.set_ylabel('Valor')
+sns.barplot(data=equipo2, x='Estadística', y='Valor', palette='Reds', ax=ax2)
+ax2.set_title(team2_select)
+ax2.set_xlabel('Categoría')
+ax2.set_ylabel('Valores')
 colum_der.pyplot(fig4)
+
