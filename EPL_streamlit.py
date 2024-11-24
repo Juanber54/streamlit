@@ -99,7 +99,7 @@ colum_izq, colum_der = st.columns(2)
 estadisticas_ofensivas = stat_multi_selected
 análisis_ofensivo_df = players.groupby('Team')[estadisticas_ofensivas].sum()
 
-# Gráfica 3
+# Gráfica 3 (primer equipo)
 colum_izq.markdown(f"**Equipo seleccionado:** {team1_selected}")
 equipo1 = análisis_ofensivo_df.loc[team1_selected].to_frame(name='Valor')
 equipo1['Estadística'] = equipo1.index
@@ -110,7 +110,7 @@ ax1.set_xlabel('Categoría')
 ax1.set_ylabel('Valores')
 colum_izq.pyplot(fig3)
 
-# Gráfica del segundo equipo
+# Gráfica 4 (segundo equipo)
 team2_select = team2_selected[:len(team2_selected)-1]
 colum_der.markdown(f"**Equipo seleccionado:** {team2_select}")
 equipo2 = análisis_ofensivo_df.loc[team2_select].to_frame(name='Valor')
@@ -122,3 +122,11 @@ ax2.set_xlabel('Categoría')
 ax2.set_ylabel('Valores')
 colum_der.pyplot(fig4)
 
+#Gráfica 5
+st.subheader('Líderes estadísticos')
+top_goles = pd.DataFrame(players[stat_selected])
+top_goles = top_goles.sort_values(by=stat_selected[0], ascending=False)
+top_goles_lim = top_goles.iloc[:top_selected+1]
+fig5, ax1 = plt.subplots()
+sns.countplot(x=top_goles_lim, color='lightblue', edgecolor='black')
+st.pyplot(fig5)
