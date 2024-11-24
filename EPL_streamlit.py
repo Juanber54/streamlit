@@ -137,7 +137,7 @@ st.pyplot(fig5)
 st.subheader('Aprovechamiento de oportunidades de cara a gol')
 goles_equipos = players[['Team', 'Goals','Expected Goals']]
 top_goles_equipos = pd.DataFrame(goles_equipos.groupby(['Team']).sum())
-fig6, ax1 = plt.subplots()
+fig6, ax1 = plt.subplots(figsize=(6, 5))
 plt.plot(top_goles_equipos['Goals'],   color = 'green',   label = 'Goals', linewidth=2)
 plt.plot(top_goles_equipos['Expected Goals'],   color = 'blue',   label = 'Expected Goals', linewidth=2)
 plt.title('Goals and Expected Goals per Team')
