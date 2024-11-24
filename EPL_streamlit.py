@@ -125,7 +125,7 @@ colum_der.pyplot(fig4)
 #Gráfica 5
 st.subheader('Líderes estadísticos')
 top_goles = pd.DataFrame(players[stat_selected])
-top_goles = top_goles.sort_values(by=stat_selected[0], ascending=False)
+top_goles = top_goles.sort_values(by=stat_selected, ascending=False)
 top_goles_lim = top_goles.iloc[:top_selected+1]
 fig5, ax1 = plt.subplots()
 sns.countplot(x=top_goles_lim, color='lightblue', edgecolor='black')
