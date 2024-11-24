@@ -107,9 +107,10 @@ ax1.set_ylabel('Valor')
 colum_izq.pyplot(fig3)
 
 colum_der.markdown(team2_selected)
+team2_select = team2_selected[:len(team2_selected)-1]
 fig4, ax2 = plt.subplots()
-equipo2 = análisis_ofensivo_df.loc[team2_selected]
+equipo2 = análisis_ofensivo_df.loc[team2_select]
 sns.countplot(x=equipo2, color='red', edgecolor='black')
-ax2.set_xlabel(team2_selected)
+ax2.set_xlabel(team2_select)
 ax2.set_ylabel('Valor')
 colum_der.pyplot(fig4)
