@@ -6,7 +6,7 @@ import streamlit as st
 import random
 from skimage import io
 
-Logo = io.imread(r"./EPLlogo.png")
+Logo = io.imread(".Imagenes/EPLlogo.png")
 st.image(Logo, width = 500)
 
 st.title("Premier League 23/24")
@@ -16,7 +16,7 @@ st.subheader(":blue[Análisis estadístico de diferentes parámetros ofensivos.]
 st.sidebar.image(Logo, width = 200)
 st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 
-players = pd.read_csv('EPL_df.csv')
+players = pd.read_csv('./Datos/EPL_df.csv')
 st.markdown(":blue[**DATAFRAME PARA EL ANÁLISIS DE LA MEJOR LIGA DEL MUNDO**]")
 
 st.markdown(":blue[Este DataFrame contiene información sobre las estadísticas de 240 jugadores de la EPL 23/24]")
