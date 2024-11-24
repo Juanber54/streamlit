@@ -161,7 +161,7 @@ with colum_izq:
 
 #Gráfica 8
 with colum_der:
-    fig8, ax2 = plt.subplots(figsize=(6, 5))
+    fig8, ax2 = plt.subplots(figsize=(8, 7))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue',ax=ax2)
     plt.title('Disparos a puerta vs Goles esperados')
     plt.xlabel('Shots on Target per 90')
@@ -180,7 +180,7 @@ ax1.set_ylabel('Goals scored', fontsize=10)
 st.pyplot(fig9)
 
 # Gráfica 10
-fig10, ax2 = plt.subplots(figsize=(4, 3))
+fig10, ax2 = plt.subplots(figsize=(8, 7))
 ax2.scatter(players['Minutes'], players['Goals'], color='grey', alpha=0.7)
 ax2.set_title('Minutes played vs Goals scored', fontsize=12)
 ax2.set_xlabel('Minutes played', fontsize=10)
