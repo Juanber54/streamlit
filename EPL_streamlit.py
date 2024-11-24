@@ -154,7 +154,7 @@ colum_izq, colum_der = st.columns(2)
 colum_izq.markdown("Disparos a puerta vs Goles (por 90)")
 with colum_izq:
     fig7, ax1 = plt.subplots()
-    players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green')
+    players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green', ax=ax1)
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Goals per 90')
     st.pyplot(fig7)
@@ -163,7 +163,7 @@ with colum_izq:
 colum_der.markdown("Disparos a puerta vs Goles esperados (por 90)")
 with colum_der:
     fig8, ax2 = plt.subplots()
-    players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue')
+    players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue',ax=ax2)
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Expected Goals per 90')
     st.pyplot(fig8)
