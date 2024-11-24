@@ -104,9 +104,8 @@ equipo1 = análisis_ofensivo_df.loc[team1_selected].to_frame(name='Valor')
 equipo1['Estadística'] = equipo1.index
 fig3, ax1 = plt.subplots()
 sns.barplot(data=equipo1, x='Estadística', y='Valor', palette='mako', ax=ax1)
-ax1.set_title(team1_selected)
-ax1.set_xlabel('Categoría')
-ax1.set_ylabel('Valores')
+ax1.set_xlabel('Categoría', fontsize=10)
+ax1.set_ylabel('Valores', fontsize=10)
 colum_izq.pyplot(fig3)
 
 # Gráfica 4 (segundo equipo)
@@ -116,9 +115,8 @@ equipo2 = análisis_ofensivo_df.loc[team2_select].to_frame(name='Valor')
 equipo2['Estadística'] = equipo2.index
 fig4, ax2 = plt.subplots()
 sns.barplot(data=equipo2, x='Estadística', y='Valor', palette='rocket', ax=ax2)
-ax2.set_title(team2_select)
-ax2.set_xlabel('Categoría')
-ax2.set_ylabel('Valores')
+ax2.set_xlabel('Categoría', fontsize=10)
+ax2.set_ylabel('Valores', fontsize=10)
 colum_der.pyplot(fig4)
 
 #Gráfica 5
@@ -153,7 +151,7 @@ st.subheader('Correlación tiros a puerta vs goles/goles esperados')
 colum_izq, colum_der = st.columns(2)
 colum_izq.markdown("Disparos a puerta vs Goles (por 90)")
 with colum_izq:
-    fig7, ax1 = plt.subplots()
+    fig7, ax1 = plt.subplots(figsize=(6, 4))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Goals per 90', color='green', ax=ax1)
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Goals per 90')
@@ -162,7 +160,7 @@ with colum_izq:
 #Gráfica 8
 colum_der.markdown("Disparos a puerta vs Goles esperados (por 90)")
 with colum_der:
-    fig8, ax2 = plt.subplots()
+    fig8, ax2 = plt.subplots(figsize=(6, 4))
     players.plot(kind='scatter', x='Shots on Target per 90', y='Expected Goals per 90', color='blue',ax=ax2)
     plt.xlabel('Shots on Target per 90')
     plt.ylabel('Expected Goals per 90')
