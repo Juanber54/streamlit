@@ -6,7 +6,7 @@ import streamlit as st
 import random
 from skimage import io
 
-Logo = io.imread(".Imagenes/EPLlogo.png")
+Logo = io.imread("./Imagenes/EPLlogo.png")
 st.image(Logo, width = 500)
 
 st.title("Premier League 23/24")
