@@ -75,7 +75,7 @@ st.divider()
 #Gráfica 1
 st.subheader('Jugadores por Equipo')
 fig1, ax1 = plt.subplots()
-teams_count = players['Team'].nunique()
+teams_count = players['Team'].unique()
 explode = [0.01] * teams_count
 st.pyplot(fig1)
 
