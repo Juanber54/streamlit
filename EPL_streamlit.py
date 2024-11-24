@@ -19,11 +19,11 @@ st.sidebar.markdown("## MENÚ DE CONFIGURACIÓN")
 #Gráfica 2 y 3
 vars_team1 = ['Arsenal','Liverpool','Aston Villa','Fulham','Newcastle United','Brentford','Tottenham Hotspur','Nottingham Forest','Manchester United','West Ham United','Wolverhampton Wanderers','Chelsea','Luton Town','Manchester City','Brighton and Hove Albion','Burnley','Everton','Crystal Palace','Bournemouth','Sheffield United']
 default_team1 = vars_team1.index('Liverpool')
-team1_selected = st.sidebar.selectbox('Elección del Equipo 1 para el Gráfico:', vars_team1, index = default_team1)
+team1_selected = st.sidebar.selectbox('Elección del Equipo 1:', vars_team1, index = default_team1)
 
 vars_team2 = ['Arsenal.','Liverpool.','Aston Villa.','Fulham.','Newcastle United.','Brentford.','Tottenham Hotspur.','Nottingham Forest.','Manchester United.','West Ham United.','Wolverhampton Wanderers.','Chelsea.','Luton Town.','Manchester City.','Brighton and Hove Albion.','Burnley.','Everton.','Crystal Palace.','Bournemouth.','Sheffield United.']
 default_team2 = vars_team2.index('Liverpool.')
-team2_selected = st.sidebar.selectbox('Elección del Equipo 2 para el Gráfico:', vars_team2, index = default_team2)
+team2_selected = st.sidebar.selectbox('Elección del Equipo 2:', vars_team2, index = default_team2)
 st.sidebar.divider()
 
 #Gráfica 4
@@ -33,7 +33,11 @@ st.sidebar.divider()
 #Gráfica 4 y 11
 vars_stat = ['Shots per 90','Shot Conversion Rate (%)','Minutes','Matches','Expected Goals per 90','Goals per 90','Goals','Shots on Target per 90','Shot Accuracy (%)','90s','Total Shots','Total Shots on Target','Expected Goals']
 default_stat = vars_stat.index('Goals')
-stat_selected = st.sidebar.selectbox('Elección de los Parámetros para el Gráfico:', vars_stat, index = default_stat)
+stat_selected = st.sidebar.selectbox('Parámetro líderes estadísticos:', vars_stat, index = default_stat)
+st.sidebar.divider()
+
+#Gráfica 11
+stat_multi_selected = st.sidebar.multiselect('Parámetros para Gráficos:', vars_stat, default = vars_stat)
 st.sidebar.divider()
 
 #Gráfica 11
@@ -42,9 +46,6 @@ if selec_val_corr == 'Activo':
     anotacion = True
 elif selec_val_corr == 'Inactivo':
     anotacion = False
-
-#Gráfica 11
-stat_multi_selected = st.sidebar.multiselect('Parámetros de la Matriz de Correlación:', vars_stat, default = vars_stat)
 
 #Gráfica 11
 vars_cmap = ['viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges',
