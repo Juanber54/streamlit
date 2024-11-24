@@ -75,8 +75,9 @@ st.divider()
 #Gráfica 1
 st.subheader('Jugadores por Equipo')
 fig1, ax1 = plt.subplots()
-teams_count = players['Team'].unique()
-explode = [0.01] * teams_count
+players.groupby('Team').size().plot(kind='pie', explode=[0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01
+                                                           , 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01
+                                                           , 0.01, 0.01, 0.01, 0.01], autopct='%.2f%%', cmap='tab10')
 st.pyplot(fig1)
 
 #Gráfica 2
